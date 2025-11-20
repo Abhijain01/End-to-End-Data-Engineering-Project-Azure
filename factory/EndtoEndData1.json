@@ -1,0 +1,9 @@
+{
+	"name": "EndtoEndData1",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3807980f-93f4-46fa-976c-31528fe218ae",
+		"tenantId": "d1cc363d-8d3b-4c7b-8ecf-b2893f0e9f8b"
+	}
+}
