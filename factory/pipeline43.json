@@ -1,0 +1,9 @@
+{
+	"name": "pipeline43",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3ddd4aca-d782-4f91-9b13-af29ad7334e4",
+		"tenantId": "d1cc363d-8d3b-4c7b-8ecf-b2893f0e9f8b"
+	}
+}
