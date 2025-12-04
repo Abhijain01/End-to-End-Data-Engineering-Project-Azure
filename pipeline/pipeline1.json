@@ -166,8 +166,6 @@
 			{
 				"name": "last_cdc_update",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "max_cdc",
@@ -187,6 +185,15 @@
 				"typeProperties": {
 					"source": {
 						"type": "JsonSource",
+						"additionalColumns": [
+							{
+								"name": "cdc",
+								"value": {
+									"value": "@activity('max_cdc').output.resultSets[0].rows[0].max_cdc",
+									"type": "Expression"
+								}
+							}
+						],
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
@@ -210,13 +217,23 @@
 				"inputs": [
 					{
 						"referenceName": "Json1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"container": "bronze",
+							"folder": "monitor",
+							"file": "empty.json"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "Json1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"container": "bronze",
+							"folder": "monitor",
+							"file": "cdc.json"
+						}
 					}
 				]
 			}
